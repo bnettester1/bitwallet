@@ -1,0 +1,35 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "js/backgroundPage.js" ]
+   },
+   "browser_action": {
+      "default_icon": "icon-16.png",
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/content.js" ],
+      "matches": [ "file://*/*", "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "description": "Chrome Extension for Handshake",
+   "icons": {
+      "128": "icon-128.png",
+      "16": "icon-16.png",
+      "48": "icon-48.png"
+   },
+   "manifest_version": 2,
+   "name": "Bit Extension",
+   "externally_connectable": {
+      "matches": ["https://f207d58382c0.ngrok.app/*","http://localhost:8076/*"]
+   },
+   "omnibox": {
+      "keyword": "bit"
+   },
+   "permissions": [ "tabs", "notifications", "http://*/", "https://*/", "webRequest", "webRequestBlocking", "proxy", "storage", "unlimitedStorage", "\u003Call_urls>" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.0",
+   "web_accessible_resources": [ "js/bob3.js", "wasm/sql-wasm.wasm" ]
+}
